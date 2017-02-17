@@ -278,6 +278,12 @@ int main(int,char**)
 				return ::java::lang::String("this is a string");
 			}
 
+			virtual void ForEachRemaining(const ::java::util::function::Consumer&)
+			{
+				printf("%s unimplemented, abort now\n", __func__);
+				abort();
+			}
+
 		private:
 			unsigned m_Count;
 		};
