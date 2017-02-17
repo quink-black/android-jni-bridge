@@ -5,6 +5,9 @@ endif
 ifeq (${PLATFORM}, android)
 	include Makefile.android
 endif
+ifeq (${PLATFORM}, linux)
+	include Makefile.linux
+endif
 
 LIBNAME		= lib${APINAME}-jni.a
 

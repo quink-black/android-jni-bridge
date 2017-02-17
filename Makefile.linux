@@ -1,0 +1,10 @@
+APINAME = jdk
+APIJAR	= ${JAVA_HOME}/jre/lib/rt.jar
+
+CPPFLAGS              := ${CPPFLAGS} -fpic -fvisibility=hidden -MMD
+CPPFLAGS              := ${CPPFLAGS} -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux
+CXXFLAGS              := ${CXXFLAGS} -fno-rtti -fno-exceptions
+STRIP                  = strip ${STRIPFLAGS}
+AR                     = ar crs
+
+export CPPFLAGS CXXFLAGS STRIP AR
