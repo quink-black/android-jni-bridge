@@ -9,10 +9,9 @@ NDK		= ${ANDROID_NDK_ROOT}
 UNAME  := $(shell uname)
 HOST   := $(shell echo ${UNAME} | tr '[:upper:]' '[:lower:]')-x86_64
 
-LLVM_VERSION	= 3.5
-LLVM_TOOLCHAIN := llvm-${LLVM_VERSION}
+LLVM_TOOLCHAIN = $(shell ls ${NDK}/toolchains |grep "llvm")
 
-GCC_VERSION     = 4.8
+GCC_VERSION     = $(shell ls ${NDK}/toolchains |grep '^arm' |sed 's/.*-//')
 
 ifeq (${ABI}, x86)
         NDK_ARCH           := arch-x86
