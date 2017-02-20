@@ -33,13 +33,13 @@ APIGENERATOR_SRCS		:= $(wildcard *.java)
 APIGENERATOR_CLASSES	:= $(addprefix $(BUILDDIR)/,$(APIGENERATOR_SRCS:%.java=%.class))
 
 static-apilib: ${GENDIR}/API.h ${GENDIR}/Makefile
-	@make -C ${GENDIR} LIBNAME=${LIBNAME} BUILDDIR=${PLATFORM_BUILDDIR} static-lib
+	+make -C ${GENDIR} LIBNAME=${LIBNAME} BUILDDIR=${PLATFORM_BUILDDIR} static-lib
 
 compile-static-apilib:
-	@make -C ${GENDIR} LIBNAME=${LIBNAME} BUILDDIR=${PLATFORM_BUILDDIR} static-lib
+	+make -C ${GENDIR} LIBNAME=${LIBNAME} BUILDDIR=${PLATFORM_BUILDDIR} static-lib
 
 api: ${GENDIR}/API.h ${GENDIR}/Makefile
-	@make -C ${GENDIR}  BUILDDIR=${PLATFORM_BUILDDIR} compile
+	+make -C ${GENDIR}  BUILDDIR=${PLATFORM_BUILDDIR} compile
 
 api-module: ${GENDIR}/Makefile ;
 ${GENDIR}/Makefile: Makefile.api *.cpp *.h | ${GENDIR}
